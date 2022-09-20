@@ -12,6 +12,7 @@ int main()
 {
 	// Have an int array to change file into an array and string to ask for file name
 	string filename;
+	
 	int dataArray[100];
 	string x = "true";
 	cout << "Enter a file name" << endl;
@@ -28,10 +29,11 @@ int main()
 	if (myFile.is_open()) {
 		for (int i = 0; i < 100; i++) {
 			myFile >> dataArray[i];
-			cout << dataArray[i] << endl;
+			cout << dataArray[i] << " " ;
 				
 				
 			}
+		cout << endl;
 		}
 
 	
@@ -49,6 +51,7 @@ int main()
 	char choice;
 	
 	bool loopback = true;
+	// Do loop while the choice is not to quit out of the loop
 	do 
 	{
 		cin >> choice;
@@ -74,7 +77,7 @@ int main()
 			// Case C appends an integer to the array
 			cout << "Enter new integer to add to the end of the array:  " << endl;
 			cin >> c;
-			add(dataArray, c);
+			add(dataArray,100, c);
 			loopback = true;
 			break;
 		case 'D':
@@ -97,5 +100,16 @@ int main()
 
 		}
 	} while (loopback);
+
+	//Print out the final array at the end.
+	for (int i = 0; i < 100; i++) {
+		if (i % 10 == 0) {
+			cout << endl << dataArray[i] << " ";
+		}
+		else {
+			cout << dataArray[i] << " ";
+		}
+	}
+	cout << c << endl;
 }
 
