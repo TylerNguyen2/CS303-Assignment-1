@@ -12,7 +12,7 @@ int main()
 {
 	// Have an int array to change file into an array and string to ask for file name
 	string filename;
-	
+
 	int dataArray[100];
 	string x = "true";
 	cout << "Enter a file name" << endl;
@@ -29,14 +29,14 @@ int main()
 	if (myFile.is_open()) {
 		for (int i = 0; i < 100; i++) {
 			myFile >> dataArray[i];
-			cout << dataArray[i] << " " ;
-				
-				
-			}
-		cout << endl;
-		}
+			cout << dataArray[i] << " ";
 
-	
+
+		}
+		cout << endl;
+	}
+
+
 	int a = 0;
 	int b = 0;
 	int c = 0;
@@ -49,10 +49,10 @@ int main()
 	cout << "Enter D to remove integer at an index" << endl;
 	cout << "Enter Q To quit" << endl;
 	char choice;
-	
+
 	bool loopback = true;
 	// Do loop while the choice is not to quit out of the loop
-	do 
+	do
 	{
 		cin >> choice;
 		switch (choice) {
@@ -69,7 +69,21 @@ int main()
 			// Choice b modifys a integer at a certain index
 			cout << "Enter index to be modified: ";
 			cin >> b;
-			modify(dataArray, b);
+			try {
+				if (0 <= b && b <= 100) {
+					modify(dataArray, b);
+				}
+				else
+				{
+					throw(b);
+				}
+			}
+			catch (...) {
+				cout << "The index does not exist in the range of the array " << endl;
+			}
+
+
+
 			loopback = true;
 			break;
 		case 'C':
@@ -77,7 +91,20 @@ int main()
 			// Case C appends an integer to the array
 			cout << "Enter new integer to add to the end of the array:  " << endl;
 			cin >> c;
-			add(dataArray,100, c);
+			try {
+				if (c > 0) {
+					add(dataArray, 100, c);
+				}
+				else {
+					throw(c);
+				}
+			}
+			catch (...) {
+				cout << "Please try again with a integer above 0" << endl;
+
+			}
+
+
 			loopback = true;
 			break;
 		case 'D':
@@ -111,5 +138,16 @@ int main()
 		}
 	}
 	cout << c << endl;
+
+
+
+	Professional p(20, 500);
+	Nonprofessional n(36, 11.6);
+	cout << "\nProfessional salary = " << p.getSalary();
+	cout << "\nProfessional vacation = " << p.getVacation();
+	cout << "\nNonprofessional salary = " << n.getSalary();
+	cout << "\nNonprofessional vacation = " << n.getVacation();
+	cout << "\nNonprofessional insurance = " << n.getInsurance();
+	return 0;
 }
 

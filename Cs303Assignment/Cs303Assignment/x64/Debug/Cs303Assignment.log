@@ -1,2 +1,7 @@
 ﻿  Cs303Assignment.cpp
+D:\source\repos\Cs303Assignment\Cs303Assignment\Header.h(101,24): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\source\repos\Cs303Assignment\Cs303Assignment\Cs303Assignment.cpp(145,28): warning C4305: 'argument': truncation from 'double' to 'float'
+  Source.cpp
+D:\source\repos\Cs303Assignment\Cs303Assignment\Header.h(101,24): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   Cs303Assignment.vcxproj -> D:\source\repos\Cs303Assignment\x64\Debug\Cs303Assignment.exe
